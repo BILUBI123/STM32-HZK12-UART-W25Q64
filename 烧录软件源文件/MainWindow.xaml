@@ -1,0 +1,67 @@
+﻿<Window x:Class="HZK12Sender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HZK12 串口字库下载器"
+        Width="660" Height="490"
+        MinWidth="620" MinHeight="420"
+        WindowStartupLocation="CenterScreen"
+        FontSize="13">
+
+    <Grid Margin="14">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 串口 -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="串口：" VerticalAlignment="Center" Margin="0,0,6,8" />
+        <ComboBox x:Name="PortBox" Grid.Row="0" Grid.Column="1" Width="150"
+                  HorizontalAlignment="Left" Margin="0,0,0,8" />
+        <Button x:Name="RefreshButton" Grid.Row="0" Grid.Column="2" Content="刷新串口"
+                Padding="12,4" Margin="8,0,0,8" Click="RefreshButton_Click" />
+
+        <!-- 波特率 -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="波特率：" VerticalAlignment="Center" Margin="0,0,6,8" />
+        <ComboBox x:Name="BaudBox" Grid.Row="1" Grid.Column="1" Width="150"
+                  HorizontalAlignment="Left" Margin="0,0,0,8" />
+
+        <!-- 文件 -->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="文件：" VerticalAlignment="Center" Margin="0,0,6,8" />
+        <TextBox x:Name="FilePathBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,8"
+                 VerticalContentAlignment="Center" Padding="4,3" />
+        <Button x:Name="BrowseButton" Grid.Row="2" Grid.Column="2" Content="选择字库文件"
+                Padding="12,4" Margin="8,0,0,8" Click="BrowseButton_Click" />
+
+        <!-- 发送 -->
+        <Button x:Name="SendButton" Grid.Row="3" Grid.ColumnSpan="3" Content="开始发送"
+                Width="120" Height="34" HorizontalAlignment="Left" Margin="0,0,0,10"
+                Click="SendButton_Click" />
+
+        <!-- 进度条 -->
+        <ProgressBar x:Name="TransferProgress" Grid.Row="4" Grid.ColumnSpan="3"
+                     Height="22" Minimum="0" Margin="0,0,0,8" />
+
+        <!-- 状态 -->
+        <TextBlock x:Name="StatusText" Grid.Row="5" Grid.ColumnSpan="3"
+                   Text="请选择字库文件和串口。" TextWrapping="Wrap" Margin="0,0,0,8" />
+
+        <!-- 日志 -->
+        <TextBox x:Name="LogBox" Grid.Row="6" Grid.ColumnSpan="3"
+                 IsReadOnly="True" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"
+                 TextWrapping="NoWrap"
+                 FontFamily="Consolas" FontSize="12"
+                 MinHeight="160" />
+    </Grid>
+</Window>
