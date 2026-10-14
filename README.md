@@ -1,5 +1,7 @@
 # HZK12 UART -> STM32F103C8T6 -> W25Q64
 
+通过 UART 串口将 HZK12 汉字字库发送给 STM32F103C8T6，再由 STM32 将字库写入 W25Q64 Flash 芯片。
+
 本示例使用 STM32 标准外设库（SPL）、USART1 和 SPI1 轮询。
 PC 应用程序：C# WPF（.NET 10 Windows）。
 
